@@ -5,7 +5,7 @@ import Rating from "./Rating";
 import ProductCard from "./ProductCard";
 import BottomCartBar from "./BottomCartBar";
  
-export const revalidate = 60; 
+
 const ProductList = async () => {
   const products = await GetData();
 

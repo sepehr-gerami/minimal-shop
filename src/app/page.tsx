@@ -4,7 +4,7 @@ import ProductList from "./components/ProductList";
 import TopHeader from "./components/TopHeader";
 import Navbar from "./components/navbar";
 import BottomCartBar from "./components/BottomCartBar";
-
+export const dynamic = "force-dynamic";
 export default function Home() {
   return (
     <>
