@@ -14,17 +14,22 @@ export type Product = {
 };
 
 export async function GetData(): Promise<Product[]> {
-  const res = await fetch("https://fakestoreapi.com/products", {
+  try {
+    const res = await fetch("https://fakestoreapi.com/products", {
+      next: {
+        revalidate: 60,
+      },
+    });
 
-    next: {
-      revalidate: 60,
-    },
-  });
+    if (!res.ok) {
+      console.error("API response not ok:", res.status);
+      return [];
+    }
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch products");
+    return await res.json();
+  } catch (error) {
+    console.error("GetData error:", error);
+    return [];
   }
-
-  return res.json();
 }
 
