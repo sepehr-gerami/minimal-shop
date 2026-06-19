@@ -2,6 +2,7 @@ import { Product } from "../../types/Product";
 import fallbackProducts from "../../../../data/fallback-products.json";
 
 export async function GetData(): Promise<Product[]> {
+ 
   try {
     const res = await fetch("https://fakestoreapi.com/products", {
       next: { revalidate: 60 },
